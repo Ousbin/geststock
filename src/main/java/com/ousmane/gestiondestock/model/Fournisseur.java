@@ -1,0 +1,41 @@
+package com.ousmane.gestiondestock.model;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Entity
+@Table(name = "fournisseur")
+public class Fournisseur extends AbstractEntity{
+
+    @Column(name = "nom")
+    private String nom;
+
+    @Column(name = "prenom")
+    private String prenom;
+
+    @Embedded
+    private Adresse adresse;
+
+    @Column(name = "identreprise")
+    private String idEntreprise;
+
+    @Column(name = "photo")
+    private String photo;
+
+    @Column(name = "mail")
+    private String mail;
+
+    @Column(name = "numtel")
+    private String umTel;
+
+    @OneToMany(mappedBy = "fournisseur")
+    private List<CommandeFournisseur> commandeFournisseurs;
+}
