@@ -31,7 +31,7 @@ public class LigneCommandeClientDto {
                 .build();
     }
 
-    public LigneCommandeClient toEntity(LigneCommandeClientDto ligneCommandeClientDto){
+    public static LigneCommandeClient toEntity(LigneCommandeClientDto ligneCommandeClientDto){
         if (ligneCommandeClientDto == null){
             return null;
         }
