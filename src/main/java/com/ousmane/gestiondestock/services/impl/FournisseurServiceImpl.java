@@ -35,7 +35,7 @@ public class FournisseurServiceImpl implements FournisseurService {
         List<String> errors = FournisseurValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("le fournisseur n'est pas valide{}", dto);
-            throw new InvalidEntityException("le fournisseur n'est pas valide", ErrorCodes.FOURNISSEUR_NOT_FOUND, errors);
+            throw new InvalidEntityException("le fournisseur n'est pas valide", ErrorCodes.FOURNISSEUR_NOT_VALID, errors);
         }
 
         Fournisseur savedFournisseur = fournisseurRepository.save(FournisseurDto.toEntity(dto));

@@ -36,7 +36,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         List<String> errors = UtilisateurValidator.validate(dto);
         if (!errors.isEmpty()) {
             log.error("l'utilisateur n'est pas valide{}", dto);
-            throw new InvalidEntityException("l'utilisateur n'est pas valide", ErrorCodes.UTILISATEUR_NOT_FOUND, errors);
+            throw new InvalidEntityException("l'utilisateur n'est pas valide", ErrorCodes.UTILISATEUR_NOT_VALID, errors);
         }
 
         Utilisateur savedUtilisateur = utilisateurRepository.save(UtilisateurDto.toEntity(dto));
